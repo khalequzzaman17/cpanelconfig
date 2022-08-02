@@ -2,10 +2,16 @@ An automated script to install and configure cPanel/WHM. The script help to save
 
 ## How to run?
 
-curl -LsO raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh && sh app.sh
+```
+curl -Ls raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh | bash
+```
 
 ## Supported OS?
 > CentOS 6.x/7.x/8.x 64bit
+
+> AlmaLinux 8.x/9.x 64bit
+
+> Ubuntu 20.04 LTS
 
 ---
 
