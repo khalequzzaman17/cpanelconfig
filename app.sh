@@ -151,7 +151,7 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 			read yesno < /dev/tty
 			if [ "x$yesno" = "xy" ] ; then
 				/usr/bin/wget https://download.configserver.com/cmc.tgz -O /usr/src/cmc.tgz &>/dev/null
-				/usr/bin/tar -xzf cmc.tgz -C /usr/src && cd /usr/src/cmc && /usr/bin/sh install.sh &>/dev/null
+				/usr/bin/tar -xzf /usr/src/cmc.tgz -C /usr/src && cd /usr/src/cmc && /usr/bin/sh install.sh &>/dev/null
 				cd /root && /usr/bin/rm -rf /usr/src/cmc /usr/src/cmc.tgz /usr/src/error_log &>/dev/null
 				echo "Done! CMC successfully installed & enabled!";
 			else
@@ -166,7 +166,7 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 			read yesno < /dev/tty
 			if [ "x$yesno" = "xy" ] ; then
 				/usr/bin/wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh -O /root/i360deploy.sh &>/dev/null
-				/usr/bin/chmod +x /root/i360deploy.sh && /root/i360deploy.sh &>/dev/null
+				/usr/bin/chmod +x /root/i360deploy.sh && sh /root/i360deploy.sh &>/dev/null
 				cd /root && /usr/bin/rm -f /root/i360deploy.sh /root/error_log &>/dev/null
 				echo "Done! Imunify360 successfully installed & enabled!";
 			else
@@ -183,7 +183,7 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 				/usr/bin/sed -i -e \'s/127.0.0.1.*api.softaculous.com//g\' \'/etc/hosts\' &>/dev/null
 				/usr/bin/sed -i \'/^$/d\' \'/etc/hosts\' &>/dev/null # Remove API from /etc/hosts File
 				/usr/bin/wget https://files.softaculous.com/install.sh -O /root/install.sh &>/dev/null
-				/usr/bin/chmod +x /root/install.sh && /root/install.sh &>/dev/null
+				/usr/bin/chmod +x /root/install.sh && sh /root/install.sh &>/dev/null
 				echo "Done! Softaculous successfully installed on your server!";
 			else
 				echo "Successfully skipped the installation of Softaculous.";
@@ -197,7 +197,7 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 			read yesno < /dev/tty
 			if [ "x$yesno" = "xy" ] ; then
 				/usr/bin/wget https://wp-toolkit.plesk.com/cPanel/installer.sh -O /root/installer.sh &>/dev/null
-				/usr/bin/chmod +x /root/installer.sh && /root/installer.sh &>/dev/null
+				/usr/bin/chmod +x /root/installer.sh && sh /root/installer.sh &>/dev/null
 				echo "Done! WP Toolkit successfully installed on your server!";
 			else
 				echo "Successfully skipped the installation of WP Toolkit.";
