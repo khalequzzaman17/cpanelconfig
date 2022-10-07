@@ -72,8 +72,10 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 		/usr/local/cpanel/whostmgr/bin/whostmgr2 --updatetweaksettings &>/dev/null
 		/usr/local/cpanel/bin/checkphpini &>/dev/null && /usr/local/cpanel/bin/install_php_inis &>/dev/null
 		if [ -f /etc/redhat-release ]; then
+			/usr/bin/yum install ea-php74-php-ioncube12 ea-php81-php-ioncube12 -y --skip-broken &>/dev/null
 			/usr/bin/yum install ea-php*-php-sourceguardian ea-php*-php-ioncube10 -y --skip-broken &>/dev/null
 		elif [ -f /etc/lsb-release ]; then
+			/usr/bin/apt install ea-php74-php-ioncube12 ea-php81-php-ioncube12 -y &>/dev/null
 			/usr/bin/apt install ea-php*-php-sourceguardian ea-php*-php-ioncube10 -y &>/dev/null
 		fi
 		# Increasing php.ini limitations for all EA-PHP
@@ -86,6 +88,7 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 		/usr/bin/sed -i 's/upload_max_filesize = .*/upload_max_filesize = 64M/' /opt/cpanel/ea-php*/root/etc/php.ini &>/dev/null
 		/usr/bin/sed -i 's/allow_url_fopen = .*/allow_url_fopen = On/' /opt/cpanel/ea-php*/root/etc/php.ini &>/dev/null
 		/usr/bin/sed -i 's/file_uploads = .*/file_uploads = On/' /opt/cpanel/ea-php*/root/etc/php.ini &>/dev/null
+		/usr/local/cpanel/whostmgr/bin/whostmgr2 --updatetweaksettings &>/dev/null
 		/usr/local/cpanel/scripts/restartsrv_cpsrvd &>/dev/null # Restarting cPanel to save the changes
 		/usr/local/cpanel/bin/install-login-profile --install limits &>/dev/null # Enabling Shell Fork Bomb Protection
 		# Installing ClamAV (Antivirus Software Toolkit)
@@ -114,6 +117,8 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 		/usr/bin/sed -i 's/maxemailsperhour=.*/maxemailsperhour=50/' /var/cpanel/cpanel.config &>/dev/null
 		/usr/bin/sed -i 's/emailsperdaynotify=.*/emailsperdaynotify=1000/' /var/cpanel/cpanel.config &>/dev/null
 		/usr/bin/sed -i 's/exim-retrytime=.*/exim-retrytime=30/' /var/cpanel/cpanel.config &>/dev/null
+		/usr/bin/sed -i 's/mycnf_auto_adjust_innodb_buffer_pool_size=.*/mycnf_auto_adjust_innodb_buffer_pool_size=1/' /var/cpanel/cpanel.config &>/dev/null
+		/usr/local/cpanel/whostmgr/bin/whostmgr2 --updatetweaksettings &>/dev/null
 		/usr/local/cpanel/scripts/restartsrv_cpsrvd &>/dev/null # Restarting cPanel to save the changes
 		# Uninstallation of ImunifyAV from cPanel v88
 		if [ -f /usr/bin/imunify-antivirus ]; then
