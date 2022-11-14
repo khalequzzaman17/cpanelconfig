@@ -63,7 +63,8 @@ if [ "$(/usr/bin/whoami)" == "root" ]; then
 		if [ -f /usr/local/cpanel/cpkeyclt ] ; then
 			/usr/bin/clear && echo "Installation of cPanel/WHM has been completed.";
 		fi
-	else
+	fi
+	if [ -d /usr/local/cpanel ] ; then
 		echo "cPanel/WHM is already installed on the server."
 		/usr/local/cpanel/scripts/setupftpserver pure-ftpd --force &>/dev/null
 		echo "Pure-FTP Installed & it has been initialized.";
