@@ -1,6 +1,7 @@
-An automated script to install and configure cPanel/WHM. The script help to save time during setting up a cPanel server for production usage.
+An automated script to install and configure cPanel/WHM. The script is written to help for saving time while setting up a cPanel server for production usage.
 
-## How to run?
+## How to Start?
+> Copy and execute the following command line through SSH (terminal).
 
 ```
 curl -Ls raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh | bash
@@ -15,7 +16,8 @@ curl -Ls raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh | ba
 
 ---
 
-### Standard PHP Settings
+### Set PHP Values:
+__  __
 * max_execution_time = 180
 * max_input_time = 180
 * max_input_vars = 3000
@@ -23,7 +25,7 @@ curl -Ls raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh | ba
 * post_max_size = 64M
 * upload_max_filesize = 64M
 
-### Included Scripts?
+### Scripts Included:
 1. ConfigServer Security & Firewall (CSF)
 2. ConfigServer ModSecurity Control (CMS)
 3. Imunify360
