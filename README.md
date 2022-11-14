@@ -22,3 +22,13 @@ curl -Ls raw.githubusercontent.com/khalequzzaman17/cpanelconfig/main/app.sh | ba
 * memory_limit = 128M
 * post_max_size = 64M
 * upload_max_filesize = 64M
+
+### Included Scripts?
+1. ConfigServer Security & Firewall (CSF)
+2. ConfigServer ModSecurity Control (CMS)
+3. Imunify360
+4. Softaculous
+5. WP Toolkit
+6. JetBackup V4 / V5
+7. LiteSpeed Enterprise Edition
+8. CloudLinux Shared OS / Pro
